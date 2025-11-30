@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  my-mysql-db:
+    build:
+      dockerfile: dockerfile
+    container_name: mysql-db
+    env_file:
+      - .env
+    volumes:
+      - my-mysql_data:/var/lib/mysql
+    restart: always
+    ports:
+      - "3306:3306"
+
+volumes:
+  my-mysql_data:
